@@ -1,0 +1,13 @@
+{% load staticfiles %}
+<!doctype html>
+<html lang="en">
+{% include "sitewide/header.html" %}
+
+<body class="home">
+    {% block body_content %} {% endblock body_content %}
+    <!-- <script src="{% static 'tether.min.js' %}"></script> -->
+    <!-- <script src="//ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script> -->
+    <script src="{% static '/assets/javascripts/sidebar.js' %}"></script>
+</body>
+
+</html>

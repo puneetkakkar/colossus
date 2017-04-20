@@ -1,0 +1,58 @@
+{% extends "sitewide/sitewide_base.html" %} {% load staticfiles %} {% block body_content %} {% include "sitewide/post_login_base.html" %}
+	<div class="container" id="project_type_tile">
+    <div id="block_add_project_type" style="position: relative; font-size:3vw;text-align: center;top:4vw;">
+        <p style="font-size: 2vw;font-weight:bold;color:#fff;">What type of project is it?</p>
+        <div class="container " style="padding-left:8rem">
+            <div id="project_types" class="row">
+                <div class="view_project offset-md-2 col-md-2" id="icon_size" data-project-type="Medical">
+                    <i id="project_type_icon" class="fa fa-stethoscope" aria-hidden="true"></i>
+                    <br>
+                    <p style="font-size:1.5vw;">Medical</p>
+                </div>
+                <div class="view_project col-md-2" id="icon_size" id="icon_size" data-project-type="Literature">
+                    <i id="project_type_icon" class="fa fa-cogs" aria-hidden="true"></i>
+                    <br>
+                    <p style="font-size:1.5vw;">Engineering</p>
+                </div>
+                <div class="view_project col-md-2" id="icon_size" id="icon_size" data-project-type="Literature">
+                    <i id="project_type_icon" class="fa fa-pencil" aria-hidden="true"></i>
+                    <br>
+                    <p style="font-size:1.5vw;">Literature</p>
+                </div>
+                <div class="view_project col-md-2" id="icon_size" id="icon_size" data-project-type="Literature">
+                    <i id="project_type_icon" class="fa fa-map-pin" aria-hidden="true"></i>
+                    <br>
+                    <p style="font-size:1.5vw;">Mass Media</p>
+                </div>
+                <div class="view_project col-md-2" id="icon_size" id="icon_size" data-project-type="Literature">
+                    <i id="project_type_icon" class="fa fa-pencil-square-o" aria-hidden="true"></i>
+                    <br>
+                    <p style="font-size:1.5vw;">Architecture</p>
+                </div>
+                <div class="view_project col-md-2" id="icon_size" id="icon_size" data-project-type="Literature">
+                    <i id="project_type_icon" class="fa fa-users" aria-hidden="true"></i>
+                    <br>
+                    <p style="font-size:1.5vw;">Humanities</p>
+                </div>
+                <div class="view_project col-md-2" id="icon_size" id="icon_size" data-project-type="Literature">
+                    <i id="project_type_icon" class="fa fa-language" aria-hidden="true"></i>
+                    <br>
+                    <p style="font-size:1.5vw;">Journalism</p>
+                </div>
+                <div class="view_project col-md-2" id="icon_size" id="icon_size" data-project-type="Literature">
+                    <i id="project_type_icon" class="fa fa-television" aria-hidden="true"></i>
+                    <br>
+                    <p style="font-size:1.5vw;">Technology</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+	$(document).on('click', '.view_project', function(){
+		var project_type = $(this).attr('data-project-type');
+		window.location = './' + project_type;
+
+	})
+</script>
+{% endblock body_content %}

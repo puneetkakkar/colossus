@@ -1,0 +1,323 @@
+{% load staticfiles %} {% block extra_headers %}
+<title>Project</title>
+{% endblock extra_headers %} {% block body_content %}
+<section class="navigation-bar">
+    <!-- <nav class="navbar navbar-light bg-faded navbar-toggleable-sm">
+        <div class="container-fluid">
+            <button type="button" class="navbar-toggler float-right hidden-md-up"
+            data-toggle="collapse" data-target="#myNavbar">☰</button> <a class="navbar-brand" href="#">WebSiteName</a>
+            <ul class="nav navbar-nav ml-auto">
+
+                <li class="nav-item"><a href="#" class="nav-link">HOME</a>
+                </li>
+                <li class="nav-item"><a href="#" class="nav-link">ABOUT US</a>
+                </li>
+                <li class="nav-item"><a href="#" class="nav-link">CONTACT US</a>
+                </li>
+                <li class="nav-item"><a href="#" data-toggle="modal" data-target="#loginModal" class="nav-link">LOGIN</a>
+                </li>
+                <li class="nav-item"><a href="#" data-toggle="modal" data-target="#signupModal" class="nav-link">SIGNUP</a>
+                </li>
+            </ul>
+        </div>
+    </nav> -->
+
+
+
+</section>
+<div id="loginModal" class="modal fade" role="dialog">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Login</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="" id="form_login">
+                    <div class="form-group">
+                        <label class="form-control-label" for="email">Email address:</label>
+                        <input type="email" class="form-control form_size" id="email" name="email" placeholder="hello@gmail.com" />
+                    </div>
+                    <div class="form-group">
+                        <label class="form-control-label" for="pwd">Password:</label>
+                        <input type="password" class="form-control form_size" name="password" placeholder="Password" />
+                    </div>
+                    <div class="form-check">
+                        <label>
+                            <input type="checkbox" name="remember" value="" />Remember me</label>
+                    </div>
+                    <div class="button-div">
+                        <button type="submit" class="btn btn-secondary login-button" name="button">Login</button>
+                    </div>
+                </form>
+                <div class="social-login">
+                    <a class="btn btn-social-icon btn-github" href="#">
+                        <span class="fa fa-github"></span>
+                    </a>
+                    <a class="btn btn-social-icon btn-facebook" href="#">
+                        <span class="fa fa-facebook"></span>
+                    </a>
+                    <a class="btn btn-social-icon btn-twitter" href="#">
+                        <span class="fa fa-twitter"></span>
+                    </a>
+                    <a class="btn btn-social-icon btn-linkedin" href="#">
+                        <span class="fa fa-linkedin"></span>
+                    </a>
+                </div>
+            </div>
+            <div class="modal-footer">
+            </div>
+        </div>
+    </div>
+</div>
+<section class="signup-modal">
+    <div id="signupModal" class="modal fade" role="dialog">
+        <div class="modal-dialog ">
+            <div class="modal-content"></div>
+        </div>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Signup</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form class="" id="form_signup">
+                        <div class="form-group">
+                            <label class="form-control-label" for="name">Full Name:</label>
+                            <input type="text" name="name" class="form-control form_size" id="signup_name" />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label" for="email">Email address:</label>
+                            <input type="email" class="form-control form_size" id="email" name="email" placeholder="hello@gmail.com" />
+                        </div>
+                        <div class="form-group">
+                            <label class="form-control-label" for="pwd">Password:</label>
+                            <input type="password" class="form-control form_size" name="password" placeholder="Password" />
+                        </div>
+                        <div class="button-div">
+                            <button type="submit" class="btn btn-secondary login-button" name="button">Signup</button>
+                        </div>
+                    </form>
+                    <div class="social-login">
+                        <a class="btn btn-social-icon btn-github" href="#">
+                            <span class="fa fa-github"></span>
+                        </a>
+                        <a class="btn btn-social-icon btn-facebook" href="#">
+                            <span class="fa fa-facebook"></span>
+                        </a>
+                        <a class="btn btn-social-icon btn-twitter" href="#">
+                            <span class="fa fa-twitter"></span>
+                        </a>
+                        <a class="btn btn-social-icon btn-linkedin" href="#">
+                            <span class="fa fa-linkedin"></span>
+                        </a>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <p>Signup Portal</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="heading ">
+    <nav class="navbar navbar-toggleable-md navbar-light" id="homepage_navbar">
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+      </button>
+
+        <div id="navbarNavDropdown" class="navbar-collapse collapse">
+            <ul class="navbar-nav nav_tab">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Getting Started</a>
+                </li>
+                <li>
+                    <a class="navbar-brand" href="#">Colossus</a></a>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">View Projects</a>
+                    </li>
+            </ul>
+            <ul class="navbar-nav register_btn">
+                <li class="nav-item"><a href="#" data-toggle="modal" data-target="#loginModal" class="nav-link">LOGIN</a>
+                </li>
+                <li class="nav-item"><a href="#" data-toggle="modal" data-target="#signupModal" class="nav-link">SIGNUP</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <div class="text-center">
+        <div class="row">
+            <div class="container col-md-12 content-centered">
+                <h1>Collaborate. Work.</h1>
+                <h5> >>> from projects import antigravity</h5>
+                <p class="tagline">
+                  Knowledge Platform for sharing projects works taken up by the students in technical/higher educational institutes throughout the country.
+                </p>
+                <blockquote>
+
+                </blockquote>
+                <a href="#">
+                    <button type="button" class="btn btn-secondary heading-button">Got a Project ? Let's Collaborate</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="news">
+    <div class="text-center">
+        <div class="row">
+            <div class="container col-md-12 content-centered">
+                <h2 class="section-title">Latest News</h2>
+                <p>Work Has Began on Projects ! Learn about the vision and how to get involved</p>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-6"></div>
+        <div class="col-md-6"></div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="icon-block col-sm">
+            <a href="#">
+                <i class="material-icons icon"></i>
+            </a>
+            <h4 class="use-heading">
+
+                      <a href="#" class="use-heading-link">Reference Guide</a>
+
+                    </h4></div>
+        <div class="icon-block col-sm">
+            <a href="#">
+                <i class="material-icons icon"></i>
+            </a>
+            <h4 class="use-heading">
+                <a href="#" class="use-heading-link">Tutorials</a>
+            </h4>
+        </div>
+        <div class="icon-block col-sm">
+            <a href="#">
+                <i class="material-icons icon"></i>
+            </a>
+            <h4 class="use-heading">
+              <a href="#" class="use-heading-link">Reference Guide</a>
+            </h4>
+        </div>
+    </div>
+</div>
+<section class="site-carousel">
+    <div class="row">
+        <div class="container">
+            <h2 class="text-center">Innovate, Collaborate, Triumph</h2>
+            <div id="Carousel" class="carousel slide text-center" data-ride="carousel">
+                <!-- Indicators -->
+                <ol class="carousel-indicators">
+                    <li data-target="#Carousel" data-slide-to="0" class="active"></li>
+                    <li data-target="#Carousel" data-slide-to="1"></li>
+                    <li data-target="#Carousel" data-slide-to="2"></li>
+                </ol>
+                <!-- Wrapper for slides -->
+                <div class="carousel-inner" role="listbox">
+                    <div class="item active carousel-item">
+                        <h4>"Go for it. No matter how it ends, it was an experience."<br /><span style="font-style: normal;">Michael Roe, Vice President, Comment Box</span></h4>
+                    </div>
+                    <div class="item carousel-item">
+                        <h4>"The people who are crazy enough to think, <br /> they can change the world are the ones who do."<br /><span style="font-style: normal;">John Doe, Salesman, Rep Inc</span></h4>
+                    </div>
+                    <div class="item carousel-item">
+                        <h4>"Could I... BE any more happy with this company?"<br /><span style="font-style: normal;">Chandler Bing, Actor, FriendsAlot</span></h4>
+                    </div>
+                </div>
+                <!-- Left and right controls -->
+                <a class="left carousel-control" href="#Carousel" role="button" data-slide="prev">
+                    <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="right carousel-control" href="#Carousel" role="button" data-slide="next">
+                    <span class="glyphicon glyphicon-chevron-right" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="getting_started"  style="background-color:#fff;padding:3rem;">
+  <div class="row">
+    <div class="container">
+      <div class="text-center">
+        <h1 style="color: #f02451;padding-bottom:2rem;">GETTING STARTED</h1>
+      </div>
+      <div class="col text-center" id="">
+        <h4>ADD PROJECT</h4>
+        <p>
+          Our Platform provides the ability to add project works of wide range ( Almost all ) of course.
+          <br>
+          We too give the facility of adding projects to our platform.
+          <br>
+          To add project on Colossus , you need to click on Add Project button after signing up/login.
+        </p>
+      </div>
+      <div class="col">
+        <div class="container col-md-12 col-lg-12 text-center">
+            <a href="#">
+                <button type="button" class="btn btn-secondary join-button">MORE...</button>
+            </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="join">
+    <div class="container-fluid text-center" style="background-color:#eee;padding:3rem;">
+        <div class="row">
+            <div class="container col-md-12 col-lg-12 content-centered">
+                <a href="#">
+                    <button type="button" class="btn btn-secondary join-button">Become a Contributor</button>
+                </a>
+            </div>
+            <div class="social-login text-center " style="margin: 0 auto;">
+                <a class="btn btn-social-icon " href="#">
+                    <span class="fa fa-github"></span>
+                </a>
+                <a class="btn btn-social-icon " href="#">
+                    <span class="fa fa-facebook"></span>
+                </a>
+                <a class="btn btn-social-icon " href="#">
+                    <span class="fa fa-twitter"></span>
+                </a>
+                <a class="btn btn-social-icon " href="#">
+                    <span class="fa fa-linkedin"></span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+<section class="footer">
+    <footer class="container-fluid text-center">
+        <a class="toTop" href="#" title="To Top">
+            <span class="glyphicon glyphicon-chevron-up"></span>
+        </a>
+        <p>Projects Made By Phoenix</p>
+    </footer>
+</section>
+<script type="text/javascript">
+    token = '{{ csrf_token }}';
+</script>
+<script src="{% static 'assets/javascripts/home.js' %}"></script>
+</script>
+{% endblock body_content %}

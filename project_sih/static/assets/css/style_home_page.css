@@ -1,0 +1,405 @@
+body {
+    overflow-x: hidden;
+}
+
+
+/*.navbar {
+    margin-bottom: 0;
+    border: 0;
+    position: relative;
+    z-index: 999;
+    margin: 0;
+    height: 86px;
+    border-radius: 0;
+}
+
+#myNavbar {
+    background-color: #fff;
+}
+
+.navbar-default {
+    background-color: #fff;
+    border-color: #fff;
+}*/
+
+
+/*  Search Bar
+
+.navbar-default .navbar-nav>li>input {
+  font-size: 0.90rem;
+  margin-top: 5px;
+  margin-bottom: 20px;
+  display: block;
+  float: inherit;
+  width: 250px;
+  padding: 20px;
+  height: 40px;
+  border-radius: 30px;
+  border: 1px solid #353535;
+  letter-spacing: 3px;
+  text-align: center;
+}  */
+
+#homepage_navbar {
+  background: linear-gradient(141deg, #c0392b 0,#8e44ad 100%);
+  top: 0;
+  position: fixed;
+  z-index: 100;
+  width: 100%;
+  height: 6rem;
+}
+
+#navbarNavDropdown {
+//  padding: 3rem;
+}
+
+.nav_tab {
+  padding-left: 8rem;
+}
+
+.nav_tab li .navbar-brand {
+  font-weight: bold;
+  color: #fff !important;
+}
+
+.nav_tab .nav-item>a {
+    color: #fff !important;
+    font-size: 0.90rem;
+    font-family: 'Lato', sans-serif;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-decoration: none;
+}
+
+.navbar-light .nav_tab .nav-item>a:visited {
+    color: #f02541;
+    text-decoration: none;
+}
+
+.navbar-light .nav_tab .nav-item>a:hover {
+    color: #fc5b3a;
+}
+
+.navbar-nav.navbar-right:last-child {
+    margin-right: 25px;
+}
+
+.navbar-nav.nav_tab {
+  margin: 0 auto;
+}
+
+.navbar-nav.register_btn {
+  font-size: 0.8rem;
+//  margin-top: 10px;
+}
+
+.register_btn .nav-item .nav-link {
+  color: #fff;
+  border: 1px solid #f02541;
+  margin: 10px;
+  background-color: #f02541;
+}
+
+.nav_tab li .navbar-brand {
+  font-size: 4rem;
+  padding: 0px 40px;
+  top: 20px;
+}
+
+.nav_tab .nav-item .nav-link {
+  margin-top: 2.5rem;
+  font-size: 1rem;
+}
+
+
+/* Main content */
+
+
+/*Modal*/
+
+.modal-content {
+    z-index: 9999;
+    background: linear-gradient(141deg, #c0392b 0,#8e44ad 100%);
+    color: #fff;
+}
+
+.modal-header {
+    text-align: center;
+    border-bottom: 1px solid #f02541;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+}
+
+.modal-body {
+    margin: 2.5rem;
+}
+
+.modal-body label {
+    font-size: 15px;
+    margin-left: 20px;
+    padding-bottom: 8px;
+    letter-spacing: 1.5px;
+}
+
+.form-control .form_size {
+    height: 40px;
+    border-radius: 30px;
+    padding: 22px 28px;
+}
+
+.checkbox {
+    margin-bottom: 20px;
+}
+
+.modal-body button {
+    color: #fff;
+    font-size: 25px;
+    background: 0;
+    width: 200px;
+    border: 1px solid #fff;
+    border-radius: 30px;
+    margin: 30px 45px 10px;
+}
+
+.button-div {
+    text-align: center;
+}
+
+.social-login {
+    background: 0;
+    text-align: center;
+    padding: 15px;
+    letter-spacing: 2px;
+    margin: 0 1.2em;
+    font-size: 2.1rem;
+}
+
+.modal-footer {
+    text-align: center;
+}
+
+
+/* Section heading*/
+
+.home main {
+    margin-top: 0;
+    overflow-x: hidden;
+}
+
+.heading {
+    background: linear-gradient(141deg, #c0392b 0,#8e44ad 100%);
+    color: #fff;
+    padding: 14rem 0 1.5rem;
+    padding-bottom: 6rem;
+}
+
+.heading h1 {
+    font-family: 'Lato', sans-serif;
+    font-size: 4.5rem;
+    font-weight: 100;
+}
+
+.text-center {
+    text-align: center !important;
+}
+
+.content-centered {
+    float: none;
+}
+
+.tagline {
+    display: block;
+    font-size: 1rem;
+    font-family: 'Merriweather Sans', sans-serif;
+    margin: 70px 30px 30px;
+}
+
+.heading-button {
+    background: 0;
+    border-radius: 35px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background .3s, color .3s;
+    border: 2px solid #fff;
+    font-size: 1rem;
+    padding: 1em 4em;
+    margin: 3em 0;
+    letter-spacing: 3px;
+}
+
+.heading-button:hover {
+    color: #f02541;
+    background-color: #fff;
+}
+
+
+/*Section News*/
+
+.news {
+    background-color: #353535;
+    color: #fff;
+    padding: 6rem;
+    position: relative;
+}
+
+.section-title {
+    margin: 0 0 1rem;
+    font-size: 2.5rem;
+    color: #fc5b3a;
+    text-transform: uppercase;
+}
+
+
+/*Section Use*/
+
+.icon-block {
+    padding: 4rem 2rem;
+    text-align: center;
+    padding-top: 6em;
+}
+
+.icon-block>a>.icon {
+    color: #f02541;
+    font-size: 5.5rem;
+    margin-top: 5px;
+}
+
+.icon-block:hover>a>.icon {
+    transition: .4s ease-in;
+    position: relative;
+    margin-top: -20px;
+    color: #fff;
+}
+
+.icon-block:hover {
+    cursor: pointer;
+    color: #fff;
+    background: linear-gradient(141deg, #c0392b 0,#8e44ad 100%);
+}
+
+.icon-block:hover .use-heading-link {
+    color: #fff;
+    text-decoration: none;
+}
+
+.use-heading {
+    margin-top: 2.0rem;
+}
+
+.use-heading-link {
+    color: #fc5b3a;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    letter-spacing: 2px;
+}
+
+.use-title {
+    color: #fc5b3a;
+    font-size: 2rem;
+    text-transform: uppercase;
+    text-align: center;
+    margin-top: 0px;
+    font-family: 'Lato', sans-serif;
+    background-color: #f5f5f5;
+    margin: 0px -100%;
+}
+
+
+/*Carousel*/
+
+.site-carousel {
+    background-color: #f5f5f5;
+}
+
+#Carousel {
+    height: 250px;
+}
+
+.carousel-item, .carousel-item.active {
+  margin-left:270px;
+}
+
+.carousel-control.right, .carousel-control.left {
+    background-image: none;
+    color: #f02541;
+    height: 195px;
+}
+
+.caraousel-inner {
+  display: inline-block !important;
+}
+
+.carousel-indicators li {
+    border-color: #f02541;
+}
+
+.carousel-indicators li.active {
+    background-color: #f02541;
+    margin: 0 auto;
+}
+
+.item h4 {
+    font-size: 19px;
+    line-height: 1.375em;
+    font-weight: 400;
+    font-style: italic;
+    margin: 70px 60px;
+}
+
+.item span {
+    font-style: normal;
+}
+
+
+/*Section Join*/
+
+.join {
+//    padding: 2.0rem;
+}
+
+.join-button {
+    background: 0;
+    color: #fc5b3a;
+    cursor: pointer;
+    text-decoration: none;
+    border: 2px solid #f02541;
+    font-size: 1rem;
+    padding: 1em 4em;
+    margin: 1em 0 3em;
+    border-radius: 35px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.join-button:hover {
+    background-color: #f02541;
+    color: #fff;
+}
+
+
+/*Footer*/
+
+.home footer {
+    padding: 4rem;
+    background-color: #353535;
+    color: #fff;
+    font-size: 1.3rem;
+}
+
+.toTop {
+    color: #fc5b3a;
+    text-decoration: none;
+}
+
+.toTop:hover {
+    color: #f02541;
+}
+
+.toTop:visited {
+    color: #fc5b3a;
+    text-decoration: none;
+}

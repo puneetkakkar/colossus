@@ -1,0 +1,130 @@
+{% load staticfiles %}
+<div id="wrapper">
+    <!-- Sidebar -->
+    <div data-spy="affix">
+        <nav class="navbar navbar-inverse bg-inverse navbar-fixed-top sidebar scrollbar" id="sidebar-wrapper">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <span>Projects</span>
+                </a>
+            </div>
+            <div class="clearfix">
+
+            </div>
+
+            <!-- menu profile quick info -->
+            <div class="profile clearfix" id="profile">
+                <div class="profile-image">
+                    <img src="{% static 'images/anonymous-male.png' %}" class="profile-image img-circle" alt="profile image">
+                </div>
+                <div class="profile-info">
+                    <span>Welcome,</span>
+                    <h2>{{user.first_name}}</h2>
+                </div>
+            </div>
+            <!-- /menu profile quick info -->
+            <br>
+            <!-- sidebar menu -->
+            <div id="sidebar-menu" class="main-menu-side main-menu">
+                <div class="menu-section">
+                    <h3>General</h3>
+                    <ul class="nav side-menu">
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-home"></i> Home
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-plus"></i> Add Project
+                            </a>
+                        </li>
+                        <li>
+                            <a href="#demo" data-toggle="collapse">
+                                <i class="fa fa-cog"></i> Settings
+                                <span id="chevron-down"></span>
+                            </a>
+                            <ul class="child-menu collapse" id="demo">
+                                <li>
+                                    <a href="#">Society Upliftment Event</a>
+                                </li>
+                                <li>
+                                    <a href="#">Innovative Event</a>
+                                </li>
+                                <li>
+                                    <a href="#">Brainstorming Event</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li>
+                            <a href="#">
+                                <i class="fa fa-sign-out"></i> Logout
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+
+
+    <!--- Page Content -->
+    <div id="page-content-wrapper" class="nav_bar">
+        <nav id="postlogin_navbar" class="navbar navbar-toggleable-md navbar-light bg-faded profile-nav navbar-fixed-top">
+            <!--      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>  -->
+            <button type="button" class="hamburger is-closed" data-toggle="offcanvas" name="button" id="menu_toggle">
+              <span class="icon-bar top-bar"></span>
+              <span class="icon-bar middle-bar"></span>
+              <span class="icon-bar bottom-bar"></span>
+            </button>
+
+            <a class="navbar-brand ml-md-5" href="#" style="font-weight:bolder;">COLOSSUS</a>
+            <div class="navbar-nav" id="navbarSupportedContent">
+                <form class="form-inline ml-5">
+                    <input  id="user_home_search" class="form-control mr-sm-2" style="margin-left: 4vw;" type="text" placeholder="Search">
+                    <button id="search_btn" class="btn my-2 my-sm-0" type="submit">Search</button>
+                </form>
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item nav-tab">
+                        <a class="nav-link" href="../../../../../">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item nav-tab">
+                        <a href="#" class="nav-link my-2 my-sm-0" onclick="window.location='../../project/add/';">
+                            <i class="fa fa-plus" aria-hidden="true"></i> &nbsp; Add Project
+                        </a>
+                        <!--                <button class="btn my-2 my-sm-0" onclick="window.location='../../project/add/';" type="submit">
+                          <i class="fa fa-plus" aria-hidden="true"></i>
+                          &nbsp; Add Project
+                        </button>   -->
+                    </li>
+                    <li class="nav-item nav-tab">
+                        <a href="#" class="nav-link">
+                            <i class="fa fa-bell"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item nav-tab">
+                        <a href="#" class="nav-link">
+                            <i class="fa fa-envelope"></i>
+                        </a>
+                    </li>
+                    <li class="nav-item dropdown" id="user_dropdown">
+                        <a class="nav-link dropdown-toggle" id="user_options_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <img onclick="window.location='../../../profile/{{profile_link}}';" src="{% static 'images/anonymous-male.png' %}" style="width: 2vw;border-radius: 2vw;display: inline;">
+                            <!--                    <a  style="display: inline;" id="user_options_dropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> -->
+                            {{user.first_name}}
+                        </a>
+                        <!--        </a>  -->
+                        <div id="" class="dropdown-menu dropmenu" aria-labelledby="user_options_dropdown">
+                            <h6 class="dropdown-header" style="font-size:0.75rem;letter-spacing: 1px;">User</h6>
+                            <a class="dropdown-item" href="#">Profile</a>
+                            <a class="dropdown-item" href="#">Preferences</a>
+                            <a class="dropdown-item" href="#">Settings</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="../../home/logout">Logout</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </nav>

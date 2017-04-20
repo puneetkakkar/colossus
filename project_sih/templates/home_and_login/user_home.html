@@ -1,0 +1,143 @@
+{% load staticfiles %} {% block body_content %}
+<style type="text/css">
+.feed_button {
+    font-size: 2vw;
+    margin-right: 1vw;
+}
+
+.feed_user_picture {
+    width: 3vw;
+    display: inline;
+    border-radius: 12vw;
+}
+
+.feed_user_activity {
+    display: inline;
+}
+
+.liked {
+    color: blue;
+}
+</style>
+{% include "sitewide/post_login_base.html" %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col">
+            <h3><p class="text-center my-4">{{user.first_name}}'s Website_Name</p></h3>
+        </div>
+    </div>
+    <div class="row">
+        <div class="offset-md-3 col-md-6" id="user_feed">
+            <p>Top Projects for you</p>
+        </div>
+        <div class="col-md-3" id="start_project_card">
+            <div class="card">
+                <div class="card-block">
+                    <h5 class="card-title">Confused in starting a project?</h5>
+                    <p class="card-text">Post a message to the community and have people from all over the world to work with you.</p>
+
+                    <a href="../../project/start" class="btn" id="start_project_btn">Start a project</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+<script type="text/javascript">
+token = '{{ csrf_token }}';
+// $("#user_home_search").keypress(function(e) {
+//     e.preventDea
+//     console.log("pressed");
+//     if (e.keyCode == 32) {
+//         query = $('#user_home_search').val();
+//         $.ajax({
+//             url: '../../project/search/',
+//             type: 'POST',
+//             data: {
+//                 'query': query
+//             },
+//             processData: false,
+//             contentType: false,
+//             success: function(data) {
+//                 print(data)
+//             }
+//         });
+//     }
+
+
+// });
+$(document).ready(function() {
+    $.ajax({
+        url: '../../profile/create_feed/',
+        type: 'POST',
+        data: {
+            'csrfmiddlewaretoken': token
+        },
+        success: function(data) {
+            console.log(data);
+            for (feed_element in data) {
+                console.log(data[feed_element]['liked']);
+                if (data[feed_element]['likes_total'] == '0') {
+                    data[feed_element]['likes_total'] = '';
+                }
+                if (data[feed_element]['comments_total'] == '0') {
+                    data[feed_element]['comments_total'] = '';
+                }
+                if (data[feed_element]['shares_total'] == '0') {
+                    data[feed_element]['shares_total'] = '';
+                }
+                if (data[feed_element]['liked'] == '1') {
+                    var bool_liked = 'liked';
+                } else if (data[feed_element]['liked'] == '0') {
+                    var bool_liked = 'unliked';
+                }
+                var project_all =
+                    '<div class="feed_project">                <hr>                <div class="feed_project_owner_meta"> <img class="feed_user_picture" src = ' + data[feed_element]['photo_link'] + '>                    <p class="feed_user_activity" > ' + data[feed_element]['full_name'] + ' added this | Mar 18</p>                </div>                <h4 class="feed_heading">' + data[feed_element]['title'] + '</h4>                <div class="feed_content">                    <p class="feed_compressed_desc">' + data[feed_element]['description'] + '                    </p>                    <div class="feed_buttons" id="button_func" data-footer_element_beta="' + data[feed_element]['project_id'] + '"' + '>                        <i class="fa fa-thumbs-up feed_button button_like ' + bool_liked + '"   aria-hidden="true">' + data[feed_element]['likes_total'] + '</i>                        <i class="fa fa-comment feed_button" aria-hidden="true">' + data[feed_element]['comments_total'] + '</i>                        <i class="fa fa-share feed_button" aria-hidden="true">' + data[feed_element]['shares_total'] + '</i>                    </div>                </div>                           </div>';
+
+                console.log(data[feed_element]['full_name']);
+                console.log(project_all);
+                feed = document.getElementById('user_feed');
+                feed.insertAdjacentHTML('beforeend', project_all);
+
+            }
+        }
+    })
+});
+$(document).on('click', '.button_like', function() {
+    var parent = $(this).parent();
+    var main_elem = $(this);
+    var beta = parent.attr('data-footer_element_beta');
+    console.log(beta);
+    var fd = new FormData();
+    fd.append('element_beta', beta);
+    fd.append('csrfmiddlewaretoken', token);
+    if ($(this).hasClass('unliked')) {
+        $.ajax({
+            url: '../../../rating_notif/like_post/',
+            type: 'POST',
+            data: fd,
+            processData: false,
+            contentType: false,
+            success: function(data) {
+                main_elem.removeClass("unliked");
+                main_elem.addClass("liked");
+            }
+        });
+    } else if ($(this).hasClass('liked')) {
+        $.ajax({
+            url: '../../../rating_notif/unlike_post/',
+            type: 'POST',
+            data: fd,
+            processData: false,
+            contentType: false,
+            success: function(data) {
+
+                main_elem.removeClass("liked");
+                main_elem.addClass("unliked");
+            }
+        });
+    }
+});
+</script>
+{% endblock body_content %}

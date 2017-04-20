@@ -1,0 +1,10 @@
+{% extends "sitewide/sitewide_base.html" %} {% load staticfiles %} {% block body_content %} {% if user.is_authenticated %} {% include "sitewide/post_login_base.html" %} {% else %} {% include "sitewide/pre_login_navbar.html" %} {% endif %}
+{{project.title}}
+<div class="sharethis-inline-share-buttons"></div>
+<div id="a"></div>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#a').html('{{project.description|safe}}');
+	})
+</script>
+{% endblock body_content %}

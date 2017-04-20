@@ -1,0 +1,244 @@
+{% extends "sitewide/sitewide_base.html" %} {% load staticfiles %} {% block extra_headers %}
+<link href="https://fonts.googleapis.com/css?family=Barrio|Open+Sans|Josefin+Sans" rel="stylesheet"> {% endblock extra_headers %} {% block body_content %} {% include "sitewide/post_login_base.html" %}
+<style type="text/css">
+input:focus {
+    outline: 0;
+}
+</style>
+<div id="add_project_full" style="background-color: #eee;height: 100vh; width: 100vw;">
+</div>
+<!-- <div id="block_add_project_type" style="position: relative; font-size:3vw;text-align: center;top:30%;transform: translateY(-50%);">
+    <p style="font-size: 2vw;">What type of project is it?</p>
+    <div style="width:200px;height:200px;background-color:#73bec8;text-align:center;"><i style="color:#fff; font-size:12vw" class="fa fa-stethoscope" aria-hidden="true"></i>
+        <br><p>Medical</p>
+    </div>
+    <i class="fa fa-arrow-right" aria-hidden="true" id="add_project_next_2"></i></div> -->
+
+<div class="container" id="text_editor" style="display: none;background-color: #fff;">
+  <h2>Description</h2>
+    <div class="row">
+
+       
+        <div class="offset-md-2 col-md-8" d="controls" style="background-color: white">
+            <!-- <div class="offset-md-2 col-md-8" d="controls" style="margin-left: 40px;background-color:#fff;margin-top:40px;"> -->
+            <button id="bold" type="button" class="btn toolbar_btn"> <i class="fa fa-bold"></i> </button>
+            <button id="italic" type="button" class="btn toolbar_btn"> <i class="fa fa-italic"></i> </button>
+            <button id="underline" type="button" class="btn toolbar_btn"> <i class="fa fa-underline"></i> </button>
+            <button id="strikethrough" type="button" class="btn toolbar_btn"> <i class="fa fa-strikethrough"></i> </button>
+            <div class="toolbar_separator"></div>
+            <button d="left_align" type="button" class="btn toolbar_btn"> <i class="fa a-align-left"></i> </button>
+            <button id="center_align" ype="button" class="btn toolbar_btn"> <i class="fa fa-align-center"></i> </button>
+            <button id="right_align" type="button" class="btn toolbar_btn"> <i class="fa fa-align-right"></i> </button>
+            <button id="orderedlist" type="button" class="btn toolbar_btn"> <i class="fa fa-list-ol"></i> </button>
+            <button id="unorderedlist" type="button" class="btn toolbar_btn"> <i class="fa fa-list-ul"></i> </button>
+            <button id="outdentText" type="button" class="btn toolbar_btn"> <i class="fa fa-outdent"></i> </button>
+            <button id="indentText" type="button" class="btn toolbar_btn"> <i class="fa fa-indent"></i> </button>
+            <div class="toolbar_separator"></div>
+            <select id="fonts" class="form-control">
+                <option selected> Font </option>
+                <option value="Normal">Normal</option>
+                <option value="Arial">Arial</option>
+                <option value="Comic Sans MS">Comic Sans MS</option>
+                <option value="Courier New">Courier New</option>
+                <option value="Monotype Corsiva">Monotype</option>
+                <option value="Tahoma New">Tahoma</option>
+                <option value="Times">Times</option>
+                <option value="Trebuchet New">Trebuchet</option>
+                <option value="Ubuntu">Ubuntu</option>
+            </select>
+            <select id="fontSize" class="form-control">
+                <option selected>Font Size</option>
+                <option value="1">12</option>
+                <option value="2">18</option>
+                <option value="3">24</option>
+                <option value="4">30</option>
+                <option value="5">36</option>
+                <option value="6">48</option>
+                <option value="7">60</option>
+            </select>
+            <iframe id="textEditor"></iframe>
+        </div>
+         <form action="." method="post" enctype="multipart/form-data"  class = "upload_form" id="lala">
+            {% csrf_token %} {{ form.as_p }}
+            <input type="submit" value="Upload" />
+        </form>
+    </div>
+</div>
+<div class="container" id="project_type_tile" style="display: none">
+    <div id="block_add_project_type" style="position: relative; font-size:3vw;text-align: center;top:4vw;">
+        <p style="font-size: 2vw;font-weight:bold;color:#fff;">What type of project is it?</p>
+        <div class="container " style="padding-left:8rem">
+            <div id="project_types" class="row">
+                <div class="add_project_next offset-md-2 col-md-2" id="icon_size" data-project-type="Medical">
+
+                    <i id="project_type_icon" class="fa fa-stethoscope" aria-hidden="true"></i> <br>
+                    <p style="font-size:1.5vw;">Medical</p>
+                </div>
+                <div class="add_project_next col-md-2" id="icon_size" id="icon_size" data-project-type="Literature">
+                    <i id="project_type_icon" class="fa fa-cogs" aria-hidden="true"></i> <br>
+                    <p style="font-size:1.5vw;">Engineering</p>
+                </div>
+                <div class="add_project_next col-md-2" id="icon_size" id="icon_size" data-project-type="Literature">
+                    <i id="project_type_icon" class="fa fa-pencil" aria-hidden="true"></i> <br>
+                    <p style="font-size:1.5vw;">Literature</p>
+                </div>
+                <div class="add_project_next col-md-2" id="icon_size" id="icon_size" data-project-type="Literature">
+                    <i id="project_type_icon" class="fa fa-map-pin" aria-hidden="true"></i> <br>
+                    <p style="font-size:1.5vw;">Mass Media</p>
+                </div>
+                <div class="add_project_next col-md-2" id="icon_size" id="icon_size" data-project-type="Literature">
+                    <i id="project_type_icon" class="fa fa-pencil-square-o" aria-hidden="true"></i> <br>
+                    <p style="font-size:1.5vw;">Architecture</p>
+                </div>
+                <div class="add_project_next col-md-2" id="icon_size" id="icon_size" data-project-type="Literature">
+                    <i id="project_type_icon" class="fa fa-users" aria-hidden="true"></i> <br>
+                    <p style="font-size:1.5vw;">Humanities</p>
+                </div>
+                <div class="add_project_next col-md-2" id="icon_size" id="icon_size" data-project-type="Literature">
+                    <i id="project_type_icon" class="fa fa-language" aria-hidden="true"></i> <br>
+                    <p style="font-size:1.5vw;">Journalism</p>
+                </div>
+                <div class="add_project_next col-md-2" id="icon_size" id="icon_size" data-project-type="Literature">
+                    <i id="project_type_icon" class="fa fa-television" aria-hidden="true"></i> <br>
+
+                    <p style="font-size:1.5vw;">Technology</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+var token = '{{csrf_token}}';
+var index_to_add_project_block = {
+    1: 'block_title',
+    2: 'block_type',
+    3: 'block_desc',
+    4: 'block_tags'
+};
+
+
+    function show_add_project_block() {
+        //blocks defined
+        var block_title =
+            '<div class="container-fluid back">        <div class="row">            <div id="block_add_project_title" class="card">                <div id="user_name" class="card-header">                    Hi! {{user.first_name}}              </div>                <div class="card-block">                    <blockquote class="card-blockquote">                        <p style="color: #333">Give a title to your project.</p>                        <input type="text" id="project_title" placeholder="title" style="font-size: 2vw; text-align: center; background-color: transparent;border:0;border-bottom:1px solid;">                    </blockquote>                </div>            </div>          <div class="" style="text-align:center">                <div class="arrows">                    <i class="fa fa-arrow-left add_project_before"></i>                      <span style="padding-left:3rem;"></span>                    <i class="fa fa-arrow-right add_project_next"></i>                </div>            </div>        </div>    </div>';
+        var block_type = 'bb';
+        var block_desc = 'aa';
+        var block_tags = 'this is tags block<button type="button" id="add_project_done" class="btn btn-secondary">Done</button>';
+
+        var add_project_block_check = localStorage.getItem("add_project_block_now");
+        if (add_project_block_check === null) {
+            localStorage.setItem("add_project_block_now", 1);
+        } else {
+            var block_now = add_project_block_check;
+        }
+        var previous_button = '<i class="add_project_before fa fa-arrow-left" aria-hidden="true" class="add_project_next"></i>';
+        var next_button = '<i class="add_project_next fa fa-arrow-right" aria-hidden="true" class="add_project_next"></i> </p>';
+        var block_now = localStorage.getItem("add_project_block_now");
+        if (block_now == 2) {
+            $("#add_project_full").html($("#project_type_tile").html() + next_button);
+        } else if (block_now == 3) {
+            $("#add_project_full").html($("#text_editor").html() + next_button);
+        } else {
+            $('#add_project_full').html(eval(index_to_add_project_block[block_now]) + next_button);
+        }
+    }
+
+    <!-- $('#add_project_full').append(previous_button); -->
+
+
+
+show_add_project_block();
+$(document).on('click', '.add_project_next', function() {
+    var b = parseInt(localStorage.getItem("add_project_block_now"));
+    if (b == 1) {
+        //get project title
+        localStorage.setItem("project_title", $('#project_title').val());
+    } else if (b == 2) {
+        //get project type
+        localStorage.setItem("project_type", $(this).attr('data-project-type'));
+    } else if (b == 3) {
+        project_desc = $("#textEditor").contents().find("body").html();
+        localStorage.setItem('project_desc', project_desc);
+    }
+    b++;
+    localStorage.setItem("add_project_block_now", b);
+    show_add_project_block();
+})
+$(document).on('click', '.add_project_before', function() {
+    var b = parseInt(localStorage.getItem("add_project_block_now"));
+    b--;
+    localStorage.setItem("add_project_block_now", b);
+    show_add_project_block();
+})
+$(document).on('click', '#add_project_done', function() {
+    var project_title = localStorage.getItem('project_title');
+    var project_type = localStorage.getItem('project_type');
+    var fd = new FormData();
+    fd.append('csrfmiddlewaretoken', token);
+    fd.append('project_title', project_title);
+    fd.append('project_type', project_type);
+    fd.append('project_desc', project_desc);
+    $.ajax({
+        url: '../../project/add_final/',
+        type: 'POST',
+        data: fd,
+        processData: false,
+        contentType: false,
+        success: function(data) {
+            console.log("Done");
+            console.log(data);
+            location.reload();
+        }
+    });
+})
+$(document).on('submit', '#lala', function(e) {
+    console.log("yo now");
+    e.preventDefault();
+    var formData = new FormData();
+    formData.append('file_project_link', $('input[type=file]')[0].files[0]);
+    formData.append('csrfmiddlewaretoken', token);
+    $.ajax({
+        url: '../../project/add/',
+        data: formData,
+        type: 'POST',
+        contentType: false, // NEEDED, DON'T OMIT THIS (requires jQuery 1.6+)
+        processData: false, // NEEDED, DON'T OMIT THIS
+        success: function(data) {
+            console.log("Done");
+            console.log(data);
+            data = data.substring(data.indexOf("/") + 1);
+            project_desc = $("#textEditor").contents().find("body").append('<img src="../../'+data+'">');
+        }
+    })
+})
+    $(document).on('click', '.add_project_before', function() {
+        var b = parseInt(localStorage.getItem("add_project_block_now"));
+        b--;
+        localStorage.setItem("add_project_block_now", b);
+        show_add_project_block();
+    })
+    $(document).on('click', '#add_project_done', function() {
+        var project_title = localStorage.getItem('project_title');
+        var project_type = localStorage.getItem('project_type');
+        var fd = new FormData();
+        fd.append('csrfmiddlewaretoken', token);
+        fd.append('project_title', project_title);
+        fd.append('project_type', project_type);
+        fd.append('project_desc', project_desc);
+        $.ajax({
+            url: '../../project/add_final/',
+            type: 'POST',
+            data: fd,
+            processData: false,
+            contentType: false,
+            success: function(data) {
+                console.log("Done");
+                console.log(data);
+                localStorage.removeItem("add_project_block_now");
+                window.location='../../../../';
+            }
+        });
+    })
+</script>
+<script src="{% static '/assets/javascripts/editor.js' %}"></script>
+{% endblock body_content %}

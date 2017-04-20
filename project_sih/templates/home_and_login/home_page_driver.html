@@ -1,0 +1,10 @@
+{% extends "sitewide/sitewide_base.html" %} {% load staticfiles %}
+{% block custom_meta %}
+<meta property="og:description" content="Project Sharing App"> {% endblock custom_meta %}
+{% block body_content %}
+	{% if user.is_authenticated %}
+		{% include "home_and_login/user_home.html" %}
+			{% else %}
+		{% include "home_and_login/home_page.html" %}
+	{% endif %}
+{% endblock body_content %}

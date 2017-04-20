@@ -1,0 +1,339 @@
+{% extends "sitewide/sitewide_base.html" %} {% load staticfiles %} {% block body_content %} {% if user.is_authenticated %} {% include "sitewide/post_login_base.html" %} {% else %} {% include "sitewide/pre_login_navbar.html" %} {% endif %}
+<style type="text/css">
+.feed_button {
+    font-size: 2vw;
+    margin-right: 1vw;
+}
+
+.feed_user_picture {
+    width: 3vw;
+    display: inline;
+    border-radius: 12vw;
+}
+
+.feed_user_activity {
+    display: inline;
+}
+</style>
+<div class="upper_profile">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-2">
+                <p>Intro &nbsp;&nbsp;
+                    <i class="fa fa-pencil edit_user_info" data-toggle="modal" data-target="#edit_user_info_modal" aria-hidden="true"></i>
+                </p>
+                <p>{{intro}}</p>
+            </div>
+            <div class="col-md-8" id="upper_profile_head">
+                <img src="{{photo_link}}" id="upper_profile_head_img">
+                <p id="upper_profile_head_name" style="margin-top: 2vw;font-size: 2vw;">{{full_name}}</p>
+                <button type="button" class="btn">Followers | {{followers_total}}</button>
+            </div>
+            <div class="col-md-2">
+                <p style="text-align: center;">About</p>
+                <p><i class="fa fa-briefcase" aria-hidden="true"></i>&nbsp Worked at Kuvera</p>
+                <p><i class="fa fa-graduation-cap" aria-hidden="true"></i>&nbspStudies Computer Science at GNIOT</p>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="option_tab">
+    <ul class="nav nav-pills nav-fill" style="width:100%">
+        <li class="nav-item" id="menu_item">
+            <a class="nav-link" href="#">
+          Home
+        </a>
+        </li>
+        <li class="nav-item" id="menu_item">
+            <a class="nav-link" href="#">
+          Filter
+        </a>
+        </li>
+        <li class="nav-item" id="menu_item">
+            <a class="nav-link" href="#">
+          Recent Projects
+        </a>
+        </li>
+        <li class="nav-item" id="menu_item">
+            <a class="nav-link" href="#">
+          Followers
+        </a>
+        </li>
+        <li class="nav-item" id="menu_item">
+            <a class="nav-link" href="#">
+          Following
+        </a>
+        </li>
+    </ul>
+
+<!-- <div class="container-fluid" style="margin-top: 2vh;">
+    <div class="row">
+        <div class="col-md-2">
+            <p style="text-align: center;">Intro&nbsp&nbsp<i class="fa fa-pencil edit_user_info" data-toggle="modal" data-target="#edit_user_info_modal" aria-hidden="true"></i></p>
+            <p>{{intro}}</p>
+        </div>
+        <div class="col-md-8" style="text-align: center;">
+            <img id="image_profile" data-toggle="modal" data-target="#image_profile_modal" src="{{photo_link}}" style="width: 15%; margin: 0 auto;border-radius: 30vw; display: table-cell;">
+            <p style="margin-top: 2vw;font-size: 2vw;">{{full_name}}</p>
+            <button type="button" class="btn btn-primary">Followers | {{followers_total}}</button>
+        </div>
+        <div class="col-md-2">
+            <p style="text-align: center;">About</p>
+            <p><i class="fa fa-briefcase" aria-hidden="true"></i>&nbsp Worked at Kuvera</p>
+            <p><i class="fa fa-graduation-cap" aria-hidden="true"></i>&nbspStudies Computer Science at GNIOT</p>
+        </div>
+    </div>
+</div> -->
+<div class="container-fluid">
+    <div class="row">
+        <div class="offset-md-3 col-md-6" id="user_feed">
+            <p>Your posts</p>
+        </div>
+    </div>
+
+</div>
+<div class="modal fade" id="image_profile_modal" tabindex="-1" role="dialog" aria-labelledby="modal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="l">Message to {{full_name}}</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="post" enctype="multipart/form-data" id="formUpload">
+                    {% csrf_token %} {{ form }}
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" data-footer_element_beta="{{element_beta}}" class="btn btn-primary" id="send_message_button">Send</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="modalCrop">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+          <h4 class="modal-title">Crop the photo</h4>
+        </div>
+        <div class="modal-body">
+          <img src="" id="image" style="max-width: 100%;">
+        </div>
+        <div class="modal-footer">
+          <div class="btn-group pull-left" role="group">
+            <button type="button" class="btn btn-default js-zoom-in">
+              <span class="glyphicon glyphicon-zoom-in"></span>
+            </button>
+            <button type="button" class="btn btn-default js-zoom-out">
+              <span class="glyphicon glyphicon-zoom-out"></span>
+            </button>
+          </div>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Nevermind</button>
+          <button type="button" class="btn btn-primary js-crop-and-upload">Crop and upload</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<div class="modal fade" id="edit_user_info_modal" tabindex="-1" role="dialog" aria-labelledby="edit_user_info_modal" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="l">{{user.first_name}},&nbspUpdate your details</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Your short intro</p>
+                <input type="text" name="">
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+<!---
+
+<div class="container-fluid">
+  <div class="row">
+    <nav class="col-sm-3 col-md-2 bg-faded sidebar">
+      <ul class="nav nav-pills flex-coloumn">
+        <li class="nav-item">
+          <h4 id="nav_head"> Categories </h4>
+        </li>
+        <li class="nav-item menu_item">
+          <a class="nav-link" href="#">
+            Engineering
+          </a>
+        </li>
+        <li class="nav-item menu_item">
+          <a class="nav-link" href="#">
+            Aeronautics
+          </a>
+        </li>
+        <li class="nav-item menu_item">
+          <a class="nav-link" href="#">
+            Jounalism
+          </a>
+        </li>
+        <li class="nav-item menu_item">
+          <a class="nav-link" href="#">
+            Computer Applications
+          </a>
+        </li>
+        <li class="nav-item menu_item">
+          <a class="nav-link" href="#">
+            Humanities
+          </a>
+        </li>
+      </ul>
+    </nav>  -->
+<!--
+    <div class="filters col-md-2">
+      <div class="category">
+        <h3 id="category_head">Categories</h3>
+        <ul class="category_list">
+          <li id="category_item">
+            <a href="#">Engineering</a>
+          </li>
+          <li id="category_item">
+            <a href="#">Aeronautics</a>
+          </li>
+          <li id="category_item">
+            <a href="#">Jounalism</a>
+          </li>
+          <li id="category_item">
+            <a href="#">Computer Applications</a>
+          </li>
+          <li id="category_item">
+            <a href="#">Management</a>
+          </li>
+          <li id="category_item">
+            <a href="#">Humanities</a>
+          </li>
+        </ul>
+      </div>
+    </div> -->
+<div class="recent_news_feed col-md-10">
+
+</div>
+</div>
+</div>
+<script type="text/javascript">
+token = '{{ csrf_token }}';
+$(function () {
+
+      /* SCRIPT TO OPEN THE MODAL WITH THE PREVIEW */
+      $("#id_file").change(function () {
+        if (this.files && this.files[0]) {
+          var reader = new FileReader();
+          reader.onload = function (e) {
+            $("#image").attr("src", e.target.result);
+            $("#modalCrop").modal("show");
+          }
+          reader.readAsDataURL(this.files[0]);
+        }
+      });
+
+      /* SCRIPTS TO HANDLE THE CROPPER BOX */
+      var $image = $("#image");
+      var cropBoxData;
+      var canvasData;
+      $("#modalCrop").on("shown.bs.modal", function () {
+        $image.cropper({
+          viewMode: 1,
+          aspectRatio: 1/1,
+          minCropBoxWidth: 200,
+          minCropBoxHeight: 200,
+          ready: function () {
+            $image.cropper("setCanvasData", canvasData);
+            $image.cropper("setCropBoxData", cropBoxData);
+          }
+        });
+      }).on("hidden.bs.modal", function () {
+        cropBoxData = $image.cropper("getCropBoxData");
+        canvasData = $image.cropper("getCanvasData");
+        $image.cropper("destroy");
+      });
+
+      $(".js-zoom-in").click(function () {
+        $image.cropper("zoom", 0.1);
+      });
+
+      $(".js-zoom-out").click(function () {
+        $image.cropper("zoom", -0.1);
+      });
+
+      /* SCRIPT TO COLLECT THE DATA AND POST TO THE SERVER */
+      $(".js-crop-and-upload").click(function () {
+        var cropData = $image.cropper("getData");
+        $("#id_x").val(cropData["x"]);
+        $("#id_y").val(cropData["y"]);
+        $("#id_height").val(cropData["height"]);
+        $("#id_width").val(cropData["width"]);
+        $("#formUpload").submit();
+      });
+
+    });
+$(document).ready(function() {
+    page_link = window.location.pathname;
+    slash_index = window.location.pathname.indexOf('/', 2);
+    profile_name = page_link.slice(slash_index + 1, -1);
+    final_url = '../../profile/profile_feed/' + profile_name + '/';
+    $.ajax({
+        url: final_url,
+        type: 'POST',
+        data: {
+            'csrfmiddlewaretoken': token
+        },
+        success: function(data) {
+            console.log(data);
+            for (feed_element in data) {
+                console.log(data[feed_element]['liked']);
+                if (data[feed_element]['likes_total'] == '0') {
+                    data[feed_element]['likes_total'] = '';
+                }
+                if (data[feed_element]['comments_total'] == '0') {
+                    data[feed_element]['comments_total'] = '';
+                }
+                if (data[feed_element]['shares_total'] == '0') {
+                    data[feed_element]['shares_total'] = '';
+                }
+                if (data[feed_element]['liked'] == '1') {
+                    var bool_liked = 'liked';
+                } else if (data[feed_element]['liked'] == '0') {
+                    var bool_liked = 'unliked';
+                }
+                var project_all =
+                    '<div class="feed_project">                <hr>                <div class="feed_project_owner_meta"> <img class="feed_user_picture" src = ' + data[feed_element]['photo_link'] + '>                    <p class="feed_user_activity" > ' + data[feed_element]['full_name'] + ' added this | Mar 18</p>                </div>                <h4 class="feed_heading"><a href="../../project/' + data[feed_element]['project_link'] + '">' + data[feed_element]['title'] + '</a></h4>                <div class="feed_content">                    <p class="feed_compressed_desc">' + data[feed_element]['description'] + '                    </p>                    <div class="feed_buttons">                        <i class="fa fa-thumbs-up feed_button" aria-hidden="true">' + data[feed_element]['likes_total'] + '</i>                        <i class="fa fa-comment feed_button" aria-hidden="true">' + data[feed_element]['comments_total'] + '</i>                        <i class="fa fa-share feed_button" aria-hidden="true">' + data[feed_element]['shares_total'] + '</i>                    </div>                </div>                           </div>';
+                console.log(data[feed_element]['full_name']);
+                console.log(project_all);
+                feed = document.getElementById('user_feed');
+                feed.insertAdjacentHTML('beforeend', project_all);
+
+            }
+        }
+    })
+});
+</script>
+<script src="{% static 'assets/javascripts/cropper.min.js' %}"></script>
+{% endblock body_content %}
