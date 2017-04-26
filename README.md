@@ -9,8 +9,9 @@ Knowledge platform for sharing the project works taken up by the students in Tec
 [Sachin](http://github.com/suresach)  
 [Mannu](http://github.com/theparadoxer02)    
 [Puneet](http://github.com/)    
-[Shweta](http://github.com/cosmologist10)        
+[Shweta](http://github.com/cosmologist10)           
 
-![Screenshot](docs/Technical-stack.jpg)   
-    
+
+![Screenshot](docs/Technical-stack.jpg)    
+
 ![Screenshot](docs/Use-case.jpg)
