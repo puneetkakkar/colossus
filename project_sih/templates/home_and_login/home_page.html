@@ -53,17 +53,17 @@
                     </div>
                 </form>
                 <div class="social-login">
-                    <a class="btn btn-social-icon btn-github" href="#">
+                    <a class="btn btn-social-icon btn-github" href="{% url 'social:begin' 'github' %}">
                         <span class="fa fa-github"></span>
                     </a>
-                    <a class="btn btn-social-icon btn-facebook" href="#">
+                    <a class="btn btn-social-icon btn-facebook" href="{% url 'social:begin' 'facebook' %}">
                         <span class="fa fa-facebook"></span>
                     </a>
-                    <a class="btn btn-social-icon btn-twitter" href="#">
+                    <a class="btn btn-social-icon btn-twitter" href="{% url 'social:begin' 'twitter' %}">
                         <span class="fa fa-twitter"></span>
                     </a>
-                    <a class="btn btn-social-icon btn-linkedin" href="#">
-                        <span class="fa fa-linkedin"></span>
+<!--                     <a class="btn btn-social-icon btn-linkedin" href="#">
+                        <span class="fa fa-linkedin"></span> -->
                     </a>
                 </div>
             </div>
@@ -104,17 +104,17 @@
                         </div>
                     </form>
                     <div class="social-login">
-                        <a class="btn btn-social-icon btn-github" href="#">
+                        <a class="btn btn-social-icon btn-github" href="{% url 'social:begin'  'github' %}">
                             <span class="fa fa-github"></span>
                         </a>
-                        <a class="btn btn-social-icon btn-facebook" href="#">
+                        <a class="btn btn-social-icon btn-facebook" href="{% url 'social:begin' 'facebook' %}">
                             <span class="fa fa-facebook"></span>
                         </a>
-                        <a class="btn btn-social-icon btn-twitter" href="#">
+                        <a class="btn btn-social-icon btn-twitter" href="{% url 'social:begin' 'twitter' %}">
                             <span class="fa fa-twitter"></span>
                         </a>
-                        <a class="btn btn-social-icon btn-linkedin" href="#">
-                            <span class="fa fa-linkedin"></span>
+<!--                         <a class="btn btn-social-icon btn-linkedin" href="#">
+                            <span class="fa fa-linkedin"></span> -->
                         </a>
                     </div>
                 </div>
@@ -291,18 +291,18 @@
                 </a>
             </div>
             <div class="social-login text-center " style="margin: 0 auto;">
-                <a class="btn btn-social-icon " href="#">
+                <a class="btn btn-social-icon " href="{% url 'social:begin' 'github' %}">
                     <span class="fa fa-github"></span>
                 </a>
-                <a class="btn btn-social-icon " href="#">
+                <a class="btn btn-social-icon " href="{% url 'social:begin' 'facebook' %}">
                     <span class="fa fa-facebook"></span>
                 </a>
-                <a class="btn btn-social-icon " href="#">
+                <a class="btn btn-social-icon " href="{% url 'social:begin' 'twitter' %}">
                     <span class="fa fa-twitter"></span>
                 </a>
-                <a class="btn btn-social-icon " href="#">
+<!--                 <a class="btn btn-social-icon " href="#">
                     <span class="fa fa-linkedin"></span>
-                </a>
+                </a> -->
             </div>
         </div>
     </div>

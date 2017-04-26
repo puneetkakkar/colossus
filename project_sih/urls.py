@@ -23,5 +23,6 @@ urlpatterns = [
     url(r'^profile/', include('user_profile.urls')),
     url(r'^rating_notif/', include('rating_notif.urls')),
     url(r'^admin/', admin.site.urls),
+    url('', include('social_django.urls', namespace='social'))
     
 ]
