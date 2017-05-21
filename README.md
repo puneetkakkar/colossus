@@ -11,13 +11,13 @@ Knowledge platform for sharing the project works taken up by the students in Tec
 [Puneet](http://github.com/)    
 [Shweta](http://github.com/cosmologist10)           
 
-##Key features :- 
+### Key features :- 
 
-1. Image upload and crop feature (as like facebook)
-2. Django-Postgres Full text Search
-3. AJAX Search
-4. Python Social-signup
-5. Uploaded Project Rating support 
+1. **Image upload and crop feature (as like facebook)**
+2. **Django-Postgres Full text Search**
+3. **AJAX Search**
+4. **Python Social-signup**
+5. **Uploaded Project Rating support** 
 
 ![Screenshot](docs/Technical-stack.jpg)    
 
