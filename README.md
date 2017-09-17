@@ -6,9 +6,9 @@ Many good initiatives by students in the form of project is presently going   un
 Knowledge platform for sharing the project works taken up by the students in Technical/Higher Educational Institutes and Universities throughout the country
 
 #### Team Members
+[Puneet](http://github.com/puneetkakkar91)
 [Sachin](http://github.com/suresach)  
-[Mannu](http://github.com/theparadoxer02)    
-[Puneet](http://github.com/puneetkakkar91)    
+[Mannu](http://github.com/theparadoxer02)        
 [Shweta](http://github.com/cosmologist10)           
 
 ### Key features :- 
@@ -18,6 +18,7 @@ Knowledge platform for sharing the project works taken up by the students in Tec
 3. **AJAX Search**
 4. **Python Social-signup**
 5. **Uploaded Project Rating support** 
+6. **Plagiarism Checker using Natural Language Processing (NLP)**
 
 ![Screenshot](docs/Technical-stack.jpg)    
 
