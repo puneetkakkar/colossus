@@ -6,7 +6,7 @@ Many good initiatives by students in the form of project is presently going   un
 Knowledge platform for sharing the project works taken up by the students in Technical/Higher Educational Institutes and Universities throughout the country
 
 #### Team Members
-[Puneet](http://github.com/puneetkakkar91)
+[Puneet](http://github.com/puneetkakkar91)  
 [Sachin](http://github.com/suresach)  
 [Mannu](http://github.com/theparadoxer02)        
 [Shweta](http://github.com/cosmologist10)           
