@@ -8,7 +8,7 @@ Knowledge platform for sharing the project works taken up by the students in Tec
 #### Team Members
 [Sachin](http://github.com/suresach)  
 [Mannu](http://github.com/theparadoxer02)    
-[Puneet](http://github.com/)    
+[Puneet](http://github.com/puneetkakkar91)    
 [Shweta](http://github.com/cosmologist10)           
 
 ### Key features :- 
